@@ -1,0 +1,5 @@
+const monthDate = (offset, day) => { const date = new Date(); date.setMonth(date.getMonth() + offset); date.setDate(day); return date.toISOString().slice(0, 10) }
+export const sampleTransactions = [
+  ['income', 52000, 'Salary', 1, 0, 'Monthly salary'], ['expense', 12000, 'Rent', 3, 0, 'Monthly rent'], ['expense', 1450, 'Food', 6, 0, 'Groceries'], ['expense', 1800, 'Shopping', 12, 0, 'Home essentials'], ['expense', 900, 'Bills', 17, 0, 'Internet bill'], ['income', 52000, 'Salary', 1, -1, 'Monthly salary'], ['expense', 12000, 'Rent', 3, -1, 'Monthly rent'], ['expense', 720, 'Travel', 10, -1, 'Metro recharge'], ['expense', 1100, 'Food', 18, -2, 'Groceries'], ['expense', 650, 'Health', 22, -2, 'Pharmacy']
+].map(([type, amount, category, day, offset, note], index) => ({ id: `sample-${index}`, type, amount, category, date: monthDate(offset, day), note }))
+export const sampleBudgets = { overall: 30000, categories: { Food: 6000, Travel: 3000, Rent: 12000, Shopping: 4000, Bills: 3000, Health: 2000, Other: 0 } }

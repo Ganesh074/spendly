@@ -1,0 +1,2 @@
+import { useState } from 'react'
+export function useLocalStorage(key, initialValue) { const [value, setValue] = useState(() => { try { const saved = localStorage.getItem(key); return saved ? JSON.parse(saved) : initialValue } catch { return initialValue } }); const update = (next) => setValue((current) => { const resolved = typeof next === 'function' ? next(current) : next; localStorage.setItem(key, JSON.stringify(resolved)); return resolved }); return [value, update] }

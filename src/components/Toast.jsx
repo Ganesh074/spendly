@@ -1,0 +1,2 @@
+import { AlertTriangle, CheckCircle2 } from 'lucide-react'
+export default function Toast({ message, type = 'success' }) { const alert = type !== 'success'; return message ? <div className={`fixed bottom-20 right-4 z-[60] flex items-center gap-2 rounded-xl px-4 py-3 text-sm text-white shadow-lg md:bottom-5 ${type === 'danger' ? 'bg-red-600' : type === 'warning' ? 'bg-yellow-500' : 'bg-gray-900'}`}>{alert ? <AlertTriangle size={17} /> : <CheckCircle2 size={17} className="text-green-400" />}{message}</div> : null }
